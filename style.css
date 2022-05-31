@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+*{                                   /*universal selector*/
+    box-sizing: border-box;        /*---if u add padding to an element it 
+                                   doesn't actually affect the width of it--*/
+}
+body{
+    font-family: 'Muli',sans-serif;
+    display: flex;                /*  this alligns everything horizally*/
+    /* flex-direction: column;  this counter balance the alignment to be vertically */
+    margin: 0;
+    align-items: center;          /*   align items in the centre*/
+    justify-content: center;     
+    height: 100vh;             /*this allows the flex to take up the whole height*/
+    overflow: hidden;          /*this will not allow the scroll bar to be seen by default*/
+} 
+.container{
+    display: flex;
+    width: 90vw;     /*this means 90% of viewport width*/
+}
+.panel{
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;    /* this makes their width to be equal*/
+    margin: 10px;
+    position: relative;
+    transition: 0.7s ease-in;
+}
+
+.panel h3{
+    font-size: 24;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active{    /*should expand if it is active*/
+    flex: 5;
+
+}
+.panel.active h3{   /* this should make the text visible when active*/
+    opacity: 1;
+}
+
+@media (max-width:480px) {
+    .container{
+        width: 100vw;
+    }
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+    
+}
